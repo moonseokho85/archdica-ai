@@ -1,7 +1,8 @@
-FROM ubuntu:18.04
+FROM nvidia/cuda:11.1.0-devel-ubuntu18.04
 
 LABEL maintainer="mseokho7733@gmail.com"
 
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update -y

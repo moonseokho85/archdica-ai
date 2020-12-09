@@ -1,13 +1,13 @@
-backend/.idea
+app/.idea
 .DS_Store
 __pycache__
 
-backend/media
+app/media
 
-backend/post/functions/pytorch_room_layout
+app/post/functions/pytorch_room_layout
 
-backend/post/SSP/ckpt
-backend/post/SSP/config
+app/post/SSP/ckpt
+app/post/SSP/config
 
 .env
 
