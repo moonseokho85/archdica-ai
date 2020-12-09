@@ -14,13 +14,12 @@ services:
 
   web:
     build:
-      context: app
+      context: ./app
       dockerfile : Dockerfile
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./app/:/usr/src/app
     ports:
       - "8000:8000"
-    environment:
-      - SECRET_KEY='abcabc'
-      - DB_NAME='db'
+    env_file:
+      - ./app/.env
