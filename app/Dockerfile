@@ -16,7 +16,7 @@ RUN python3 -m pip install --upgrade pip
 COPY requirements .
 RUN pwd
 RUN ls -al
-RUN python3 -m pip install -r requirements/promotion.txt
+RUN python3 -m pip install -r promotion.txt
 
 # copy project
 COPY . .
