@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1.0-devel-ubuntu18.04
+FROM nvidia/cuda:11.1-devel-ubuntu18.04
 
 LABEL maintainer="mseokho7733@gmail.com"
 
