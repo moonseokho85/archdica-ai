@@ -13,7 +13,7 @@ RUN apt-get install -y python3 python3-pip python3-dev build-essential
 
 # install dependencies
 RUN python3 -m pip install --upgrade pip
-COPY requirements/promotion.txt .
+COPY requirements .
 RUN pwd
 RUN ls -al
 RUN python3 -m pip install -r requirements/promotion.txt
