@@ -12,7 +12,6 @@ jmespath==0.10.0
 kiwisolver==1.2.0
 matplotlib==3.3.2
 mit-semseg @ git+https://github.com/CSAILVision/semantic-segmentation-pytorch.git@9aff40de31ee4b21f18514d31e5d6e4ba056924d
-mysqlclient==2.0.1
 numpy==1.19.2
 opencv-python==4.4.0.44
 Pillow==8.0.0
