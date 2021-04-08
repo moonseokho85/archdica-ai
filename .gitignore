@@ -9,6 +9,6 @@ app/post/functions/pytorch_room_layout
 app/post/SSP/ckpt
 app/post/SSP/config
 
-.env
+.env.dev
 
 env
