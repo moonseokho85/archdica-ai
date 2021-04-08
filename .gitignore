@@ -11,4 +11,4 @@ app/post/SSP/config
 
 .env
 
-venv
+env
