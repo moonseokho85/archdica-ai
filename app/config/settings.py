@@ -15,8 +15,6 @@ import pymysql
 import os
 import json
 from django.core.exceptions import ImproperlyConfigured
-import environ
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -29,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fjeijfksjdfwiovnidsnoifnewiofoidsnksdnoiewnions')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # if True, development mode. else production mode.
+DEBUG = os.environ.get('DEBUG', 'True')  # if True, development mode. else production mode.
 
-ALLOWED_HOSTS = ['52.79.52.126']  # if DEBUG is True, Default value of ALLOWED_HOSTS is 'localhost', '127.0.0.1'
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', [])  # if DEBUG is True, Default value of ALLOWED_HOSTS is 'localhost', '127.0.0.1'
 
 
 # Application definition
@@ -64,7 +62,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True  # This enables all API requests from a different server to be allowed.
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -195,8 +193,8 @@ AWS_REGION = "ap-northeast-2"  # AWS 지역
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')  # 액세스 키
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')  # 비밀 액세스 키
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')  # 액세스 키
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')  # 비밀 액세스 키
 
 AWS_STORAGE_BUCKET_NAME = "archdica-ai-bucket"  # 버킷 이름
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)

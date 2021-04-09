@@ -4,16 +4,15 @@ import torch
 from torchvision import transforms
 import numpy as np
 from PIL import Image
-from decouple import config
 import boto3
 from io import BytesIO
 from urllib.parse import urlparse
 
 # s3 config
 client = boto3.client('s3',
-                  aws_access_key_id=config('AWS_ACCESS_KEY_ID'),
-                  aws_secret_access_key=config('AWS_SECRET_ACCESS_KEY'),
-                  region_name=config('AWS_DEFAULT_REGION'))
+                  aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+                  aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
+                  region_name=os.environ.get('AWS_DEFAULT_REGION'))
 
 BUCKET_NAME = "archdica-ai-bucket"
 

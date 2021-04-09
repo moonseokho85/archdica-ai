@@ -23,15 +23,19 @@ RUN apt-get install -y python3-pip python3-dev
 # install postgreSQL
 RUN apt-get install -y python-psycopg2
 
+# solve cv2 error
+RUN apt-get install -y libgl1-mesa-glx
+
 # install dependencies
 RUN python3 -m pip install --upgrade pip
 COPY requirements .
 RUN python3 -m pip install -r development.txt
 
+# install mit-semseg library
+RUN pip install git+https://github.com/CSAILVision/semantic-segmentation-pytorch.git@master
+
 # copy entrypoint.sh
 COPY ./entrypoint.sh .
-RUN pwd
-RUN ls -al
 
 # copy project
 COPY . .

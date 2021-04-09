@@ -10,10 +10,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .functions.synthesize import synthesize
 from .functions.ssp_execute import execute
-from decouple import config
 
 # config
-AWS_DEFAULT_REGION = config('AWS_DEFAULT_REGION')
+AWS_DEFAULT_REGION = os.environ.get('AWS_DEFAULT_REGION')
 
 
 class ConvertImageAPIView(APIView):
